@@ -1,0 +1,261 @@
+\documentclass{beamer}
+
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Madrid}       % or try default, Darmstadt, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}    % or try default, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings,angles}
+\usepackage{tikz-3dplot} 
+
+\usepackage{amsmath}
+
+
+\begin{document}
+
+\newcommand{\tikzAngleOfLine}{\tikz@AngleOfLine}
+  \def\tikz@AngleOfLine(#1)(#2)#3{%
+  \pgfmathanglebetweenpoints{%
+    \pgfpointanchor{#1}{center}}{%
+    \pgfpointanchor{#2}{center}}
+  \pgfmathsetmacro{#3}{\pgfmathresult}%
+  }
+
+
+
+\begin{frame}{Poynting flux}
+
+\bf{MHD eqs} 
+ 
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.5]{eqs.png}
+\end{figure}
+
+\bf{Poynting flux} 
+
+\begin{equation}
+\vec{P} = \frac{1}{4 \pi} \left ( \vec{E} \times \vec{B}  \right ) = \frac{1}{4 \pi} 
+ (- \vec{v} \times \vec{B}  + \eta \nabla \times \vec{B}) \times \vec{B}
+\end{equation}
+
+\end{frame}
+
+\begin{frame}{Poynting flux}
+\begin{equation}
+E_{mag} = \frac{B^2}{8 \pi} , \;\;\;\; \;\;\;\; \;\;\;\;  \vec{j} = \frac{1}{4 \pi} \nabla \times \vec{B}
+\end{equation}
+\begin{equation}
+\frac{\partial E_{mag}}{\partial t} + \frac{1}{4 \pi} \nabla \cdot \vec{P} = -\vec{j} \cdot \vec{E}
+\end{equation}
+
+\begin{equation}
+\vec{P} =  \vec{v} E_{mag} - \frac{1}{4 \pi} \vec{B}(\vec{v} \cdot \vec{B}) + 
+ \frac{1}{4 \pi} \eta (  \nabla \times \vec{B})  \times \vec{B} 
+\end{equation}
+
+
+\begin{equation}
+\vec{j} \cdot \vec{E} = \vec{v} \cdot \left( \vec{j} \times \vec{B} \right) + \frac{\eta}{4 \pi} \left ( \nabla \times \vec{B} \right )^2
+\end{equation}
+
+\end{frame}
+
+\begin{frame}{Boundary conditions used here}
+
+{\bf horizontal}: periodic
+
+{\bf vertical}: 
+
+\begin{itemize}
+
+\item hydrodynamical variables:
+
+All three mass flux components are symmetric with
+respect to the boundary. We decompose the gas pressure
+into mean pressure and fluctuation.  The
+mean pressure is extrapolated into the ghost cells such
+that its value at the boundary is fixed, while the pressure
+fluctuations are damped in the ghost cells.
+
+\item magnetic field:
+
+\begin{itemize}
+\item bottom
+\begin{itemize}
+
+\item O16bM: symmetric
+\item Z16M: zero
+ 
+
+\end{itemize}
+\item top:  potential field extrapolation
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Comparison of the Poynting flux for the simulations O16bM (solid) and Z16M (dashed)}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{poynting1.png}
+	\caption{Black lines show the horizontally
+averaged Poynting flux, blue and red lines present the contributions from up- and downflows}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}
+\item vector magnitude averaged in horizontal plane
+\item normalized by solar photospheric energy flux
+\item bottom domain, solid line: upflow - BC open makes flux enter the domain, but downflow flux = 6 * upflow flux
+\item dashed line: bottom upflow = 0(BC def) , but z $>$ -5,-4 Mm upward directed Poynting flux, almost identical contribution (as solid line) for upward and downward flow ??
+\end{itemize}
+
+\end{frame}
+\begin{frame}{Comparison of energy loss rate: $-\frac{P(z)}{\int_z^{z_{top}}{E_{mag} dz }}$   for the simulations O16bM (solid) and Z16M (dashed)}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{poynting2.png}
+	\caption{Energy loss rate due to the Poynting flux. The
+red dotted line indicates a convective overturning rate: $\frac{{v_z}_{rms}}{H_{\rho}}$}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}
+\item integration in the domain above a height z
+\item flux close to 0 at the top boundary
+\item dashed line: magnetic loss  rate 1.8 times higher?? , profile  agrees with the red line
+\item magnetic energy loss due to overturnig convection (red line) has a slow timescale: $\frac{H_{\rho}}{{v_z}_{rms}}$
+\item dynamo growth rate $\gamma >> \frac{{v_z}_{rms}}{H_{\rho}}$ (kinematic growth phase) achieved always with high resolution($\Delta x \le 8km$), low resolution(16 km here) only in in the bottom part,
+not in the photosphere
+\item non linear saturation phase:  $\gamma \approx \frac{{v_z}_{rms}}{H_{\rho}}$ bottom BCs matter
+\item dashed line: maximum energy loss at the bottom boundary $\implies$ the lower limit(small saturation field strength)  for an efficient dynamo (solid line below dashed: more efficient) 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Comparison of the energy lost by the Poynting flux to the
+energy converted via the Lorentz force:  $\frac{P(z)}{\int_z^{z_{top}}{ \vec{v} \cdot \left( \vec{j} \times \vec{B} \right)dz }}$ for the simulations O16bM (solid) and Z16M (dashed)}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{poynting3.png}
+	\caption{Fraction of energy transported by the Poynting flux relative to energy converted by the Lorentz
+force}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{itemize}
+\item dashed line below solid line because saturation affects more  $-(\vec{v} \times \vec{B}) \times \vec{B}$ (part of $\vec{P}$ ) than $\vec{v} \cdot \left( \vec{j} \times \vec{B} \right)$
+and stronger saturation effect in solid line
+\item  $\int_{z_{bottom}}^{z_{top}}{E_{mag} dz}$ 4 times bigger in solid line than dashed, 
+\item but $\int_{z_{bottom}}^{z_{top}}{ \vec{v} \cdot \left( \vec{j} \times \vec{B} \right)dz }$ comparable, 50\% of the energy
+converted by pressure/buoyancy forces in the domain, 80\% of the
+energy flux through the domain
+\item Most of
+the energy converted from kinetic to magnetic is preferentially
+dissipated in downflow regions, while work against the Lorentz
+force reduces the kinetic energy there. This changes the overall
+balance of the convective energy transport by reducing the
+contribution from the kinetic energy flux. We find in a non-
+magnetic convection simulation in 6 Mm depth a downward
+directed kinetic energy flux of about -0.3 Fs , this value is
+reduced to −0.2 Fs in simulation O16bM
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dependence on domain size and resolution}
+\begin{itemize}
+\item small scale {\bf grid resolution dependence}
+
+Recently, Hotta et al. (2014) presented small-scale dynamo
+simulations in a global setup covering the convection zone
+up to 7 Mm beneath the photosphere. Using a similar numerical
+ approach, but a substantially lower grid spacing of
+1100 km horizontally and 375 km vertically, they were able to
+maintain a field with 0.15-0.25 $B_{eq}$ throughout the convection
+
+overall field strength reached (their
+field near the top boundary falls short of our values by a factor
+of four, which is reflected in an energy conversion rate more
+than a factor of 10 lower)
+
+\item {\bf small scale - large scale difference}
+
+Integrated over the entire convection
+zone, the energy conversion rate
+extracted from large-scale mean
+flows in mean field dynamo models (Rempel 2006), as well
+as three-dimensional global dynamo simulations (Nelson et al.
+2013), is about two orders of magnitude smaller.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 }
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{img381.png}
+	\caption{Ratio of horizontal to vertical field strength as a function of height. Different colors refer to simulations with the average vertical field strength at $\tau$ = 1
+as indicated. The ratio of the horizontal to vertical field has a maximum at about 450 km above $\tau$ = 1 and is strongly dependent on the overall field strength of the
+simulation and decreases with increasing field strength. }
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 }
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{img382.png}
+	\caption{ Probability distribution functions for the field inclination with respect to the vertical. Solid lines refer to
+the deep photosphere around $\tau$ = 1, and dashed lines to about 450 km height as indicated in panel (a). The black solid line indicates an isotropic distribution of field
+inclinations.}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 }
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{img383.png}
+	\caption{the magnetic field structure at the photosphere. Red (green) lines indicate
+the rms (mean) field strengths, while blue lines show the equipartition field strength. The meaning of the line styles: dashed
+(dotted) lines refer to the corresponding averages of vertical (horizontal) field components}
+\end{figure}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+\end{document}
