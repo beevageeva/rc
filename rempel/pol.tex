@@ -43,8 +43,7 @@
 \bf{Poynting flux} 
 
 \begin{equation}
-\vec{P} = \frac{1}{4 \pi} \left ( \vec{E} \times \vec{B}  \right ) = \frac{1}{4 \pi} 
- (- \vec{v} \times \vec{B}  + \eta \nabla \times \vec{B}) \times \vec{B}
+\vec{P} =  \vec{E} \times \vec{B}   =  (- \vec{v} \times \vec{B}  + \eta \nabla \times \vec{B}) \times \vec{B}
 \end{equation}
 
 \end{frame}
@@ -58,8 +57,8 @@ E_{mag} = \frac{B^2}{8 \pi} , \;\;\;\; \;\;\;\; \;\;\;\;  \vec{j} = \frac{1}{4 \
 \end{equation}
 
 \begin{equation}
-\vec{P} =  \vec{v} E_{mag} - \frac{1}{4 \pi} \vec{B}(\vec{v} \cdot \vec{B}) + 
- \frac{1}{4 \pi} \eta (  \nabla \times \vec{B})  \times \vec{B} 
+\vec{P} =  4 \pi \vec{v} E_{mag} -  \vec{B}(\vec{v} \cdot \vec{B}) + 
+  \eta (  \nabla \times \vec{B})  \times \vec{B} 
 \end{equation}
 
 
@@ -117,10 +116,11 @@ averaged Poynting flux, blue and red lines present the contributions from up- an
 \begin{frame}
 
 \begin{itemize}
-\item vector magnitude averaged in horizontal plane
-\item normalized by solar photospheric energy flux
+\item z component averaged in horizontal plane (horizontal component = 0 because of symmetry?), 
+normalized by solar photospheric energy flux
 \item bottom domain, solid line: upflow - BC open makes flux enter the domain, but downflow flux = 6 * upflow flux
-\item dashed line: bottom upflow = 0(BC def) , but z $>$ -5,-4 Mm upward directed Poynting flux, almost identical contribution (as solid line) for upward and downward flow ??
+\item dashed line: bottom upflow = 0(BC def) , but z $>$ -5,-4 Mm upward directed UPFLOW Poynting flux, 
+almost identical contribution (as solid line) for BOTH upward and downward flow ??
 \end{itemize}
 
 \end{frame}
@@ -140,7 +140,7 @@ red dotted line indicates a convective overturning rate: $\frac{{v_z}_{rms}}{H_{
 \begin{itemize}
 \item integration in the domain above a height z
 \item flux close to 0 at the top boundary
-\item dashed line: magnetic loss  rate 1.8 times higher?? , profile  agrees with the red line
+\item dashed line: magnetic loss  rate 1.8 times higher (log scale) , profile  agrees with the red line (smaller Pz, but much smaller magnetic energy: about 4 times)
 \item magnetic energy loss due to overturnig convection (red line) has a slow timescale: $\frac{H_{\rho}}{{v_z}_{rms}}$
 \item dynamo growth rate $\gamma >> \frac{{v_z}_{rms}}{H_{\rho}}$ (kinematic growth phase) achieved always with high resolution($\Delta x \le 8km$), low resolution(16 km here) only in in the bottom part,
 not in the photosphere
@@ -165,7 +165,7 @@ force}
 
 \begin{frame}
 \begin{itemize}
-\item dashed line below solid line because saturation affects more  $-(\vec{v} \times \vec{B}) \times \vec{B}$ (part of $\vec{P}$ ) than $\vec{v} \cdot \left( \vec{j} \times \vec{B} \right)$
+\item dashed line below solid line because saturation affects more $\vec{v} \cdot \left( \vec{j} \times \vec{B} \right)$ than $-(\vec{v} \times \vec{B}) \times \vec{B}$ (part of $\vec{P}$ ) ($\implies$ this fraction bigger because of saturation)
 and stronger saturation effect in solid line
 \item  $\int_{z_{bottom}}^{z_{top}}{E_{mag} dz}$ 4 times bigger in solid line than dashed, 
 \item but $\int_{z_{bottom}}^{z_{top}}{ \vec{v} \cdot \left( \vec{j} \times \vec{B} \right)dz }$ comparable, 50\% of the energy
@@ -195,7 +195,7 @@ up to 7 Mm beneath the photosphere. Using a similar numerical
 1100 km horizontally and 375 km vertically, they were able to
 maintain a field with 0.15-0.25 $B_{eq}$ throughout the convection
 
-overall field strength reached (their
+Overall field strength reached (their
 field near the top boundary falls short of our values by a factor
 of four, which is reflected in an energy conversion rate more
 than a factor of 10 lower)
@@ -213,7 +213,7 @@ as three-dimensional global dynamo simulations (Nelson et al.
 
 \end{frame}
 
-\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 }
+\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 for O16bM }
 
 \begin{figure}[H]
  \centering
@@ -225,19 +225,19 @@ simulation and decreases with increasing field strength. }
 
 \end{frame}
 
-\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 }
+\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 for O16bM}
 
 \begin{figure}[H]
  \centering
  \includegraphics[scale=0.3]{img382.png}
 	\caption{ Probability distribution functions for the field inclination with respect to the vertical. Solid lines refer to
-the deep photosphere around $\tau$ = 1, and dashed lines to about 450 km height as indicated in panel (a). The black solid line indicates an isotropic distribution of field
-inclinations.}
+the deep photosphere around $\tau$ = 1, and dashed lines to about 450 km height. 
+The black solid line indicates an isotropic distribution of field inclinations(agreement with solid lines).}
 \end{figure}
 
 \end{frame}
 
-\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 }
+\begin{frame}{Horizontal Magnetic Field above $\tau$ = 1 for O16bM}
 
 \begin{figure}[H]
  \centering
