@@ -37,32 +37,34 @@
  
 \begin{figure}[H]
  \centering
- \includegraphics[scale=0.5]{eqs.png}
+ \includegraphics[scale=0.6]{eqs.png}
 \end{figure}
 
-\bf{Poynting flux} 
 
-\begin{equation}
-\vec{P} =  \vec{E} \times \vec{B}   =  (- \vec{v} \times \vec{B}  + \eta \nabla \times \vec{B}) \times \vec{B}
-\end{equation}
 
 \end{frame}
 
 \begin{frame}{Poynting flux}
-\begin{equation}
+
+\begin{equation} \nonumber
+\vec{P} =  \vec{E} \times \vec{B}   =  (- \vec{v} \times \vec{B}  + \eta \nabla \times \vec{B}) \times \vec{B}
+\end{equation}
+
+\begin{equation} \nonumber
 E_{mag} = \frac{B^2}{8 \pi} , \;\;\;\; \;\;\;\; \;\;\;\;  \vec{j} = \frac{1}{4 \pi} \nabla \times \vec{B}
 \end{equation}
-\begin{equation}
+
+\begin{equation} \nonumber
 \frac{\partial E_{mag}}{\partial t} + \frac{1}{4 \pi} \nabla \cdot \vec{P} = -\vec{j} \cdot \vec{E}
 \end{equation}
 
-\begin{equation}
-\vec{P} =  4 \pi \vec{v} E_{mag} -  \vec{B}(\vec{v} \cdot \vec{B}) + 
-  \eta (  \nabla \times \vec{B})  \times \vec{B} 
-\end{equation}
+%\begin{equation} \nonumber
+%\vec{P} =  4 \pi \vec{v} E_{mag} -  \vec{B}(\vec{v} \cdot \vec{B}) + 
+%  \eta (  \nabla \times \vec{B})  \times \vec{B} 
+%\end{equation}
 
 
-\begin{equation}
+\begin{equation} \nonumber
 \vec{j} \cdot \vec{E} = \vec{v} \cdot \left( \vec{j} \times \vec{B} \right) + \frac{\eta}{4 \pi} \left ( \nabla \times \vec{B} \right )^2
 \end{equation}
 
@@ -250,12 +252,104 @@ the rms (mean) field strengths, while blue lines show the equipartition field st
 \end{frame}
 
 
+\begin{frame}{}
+4.4 Distribution function: kG field concentrations
+\end{frame}
+
+\begin{frame}{PDF  robust $\impliedby $ no dependence on resolution}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{img44-1.png}
+	\caption{
+Panel (c) shows the PDF for $\lvert$B x $\rvert$ and $\lvert$B z $\rvert$ at $\tau$ = 1. We do
+not see a systematic dependence on resolution, differences for
+stronger field are mostly realization noise. For fields with less
+than 500 G strength the PDFs for $\lvert$B x $\rvert$ and $\lvert$B z $\rvert$ are essentially
+identical. Note that we show here the PDFs for the absolute values of the field components since the simulations do not have
+any net magnetic flux, leading to symmetric PDFs with respect
+to B = 0.}
+\end{figure}
 
 
 
 
+\end{frame}
 
 
+\begin{frame}{The shape of the PDF depends on field strength and domain size }
+\begin{itemize}
+\item for $<\lvert$Bz $\rvert>$  80 G we find that 50\% of the energy
+comes from fields with less than 500 G, kG field concentrations
+contribute about 16\% to the total energy 
+\item weaker field 60G  energy from kG field concentrations drops to 9\%
+\item 60G, larger domain it increases to 23\%
+\item the filling factor of the kG field
+concentrations (area with field $<\lvert$B $\rvert>$ $>$ 1kG discussed in 3.4) is strongly field strength dependent. More than $<\lvert$B z $\rvert>$ 	 $\approx$ 30 - 40 G is required at $\tau$ = 1 before they form and the
+filling factor increases steeply as the field strength increases
+beyond that threshold 
+\end{itemize}
 
+\end{frame}
+
+\begin{frame}{The filling factor}
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{img44-3.png}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Comparing PDF for horizontal and vertical field}
+
+\begin{itemize}
+\item Comparing the shape of normalized
+PDFs for vertical and horizontal field components, we find
+that the PDFs for the vertical field in the photosphere deviate
+substantially from those of horizontal field, as well as vertical
+field beneath the photosphere
+
+\item This is a strong
+hint for the presence of a convective intensification mechanism
+(Schüssler 1990) that is restricted to the photosphere and mostly
+affects the vertical field
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Comparing PDF for horizontal and vertical field}
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{img44-2.png}
+	\caption{
+(b), (c) probability distribution functions for $\lvert$B x $\rvert$ and $\lvert$B z $\rvert$ for three different height levels in simulation O4a. Solid
+lines show quantities in 1 Mm depth, dotted lines on the $\tau$ = 1, and dashed lines on the $\tau$ = 0.01 levels. Panel (c) compares normalized PDFs, which allow for a direct
+comparison of the shape regardless of field strength}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Strong magnetic field at $\tau$ = 1 (up to 2.5 kG)}
+
+\begin{itemize}
+
+\item not organized
+in the form of flux tubes, organized in sheets, often with alternating polarities. The kG flux
+concentrations are small knots along these sheets in which the
+field strength is increased temporarily due to dynamical effects
+\item it does not have a preferred
+scale around 100 km.  We find the kG flux concentrations down to the smallest scales
+we can resolve 
+\item The kG field present in our simulations does
+not produce a distinct feature in the PDFs like a secondary peak
+around kG field strength, which is found in many observations.
+
+These observation also indicate that the second
+peak is possibly caused by contributions from network field and
+may not be present for an inter-network field alone
+ 
+\end{itemize}
+\end{frame}
 
 \end{document}
